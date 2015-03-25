@@ -1,0 +1,31 @@
+# Introduction #
+Module WesternUnion en Français, anglais,espagnol, portuguais.
+Il permet d'envoyer un mail au client avec les informations WesternUnion, j'ai aussi ajouté un email pour la réponse du client afin de récupérer les informations sur un autre email que celui du service client; mais rien n'empeche de mettre le même.
+
+
+
+# Details #
+
+Il faut **copier le dossier westunion dans \modules\** (le module avec traduction)
+et le contenu du **dossier mails dans \mails\** (messages envoyés au client dans les différentes langues)
+
+Ensuite il faut **créer un nouveau status** et noter l'ID pour l'attente de paiement par WesternUnion (BO\commandes\status) ou le configurer si c'est déjà fait:
+  * fr: En attente du paiement par Western Union
+  * en: Awaiting Western Union payment
+  * es: En espera de pago por Western Union
+  * pt: Aguardando pagamento por Western Union
+
+  * icône westunion/logo.gif
+
+  * X  Envoyer un e-mail au client lors du passage à cet état
+
+  * modèle: westunion
+
+Puis il faut **ajouter la variable dans config\defines.inc.php** pour définir l'ID de status qui sera appliqué après confirmation de la commande.
+
+> `/* Order states */`
+
+> `define('_PS_OS_WESTUNION_',   n°du status WU);`
+
+
+je l'utilise sur la SVN 1.3.x pour les anciennes versions, la variable _PS\_OS\_WESTUNION_ est à ajouter dans config.inc.php
